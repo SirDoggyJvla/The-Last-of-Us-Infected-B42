@@ -22,10 +22,10 @@ local TLOU_infected = require "TLOU_infected_module"
 --- Create zombie types
 TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 	-- Sandbox options imported localy for performance reasons
-	-- TLOU_infected.HideIndoorsUpdates 		=		math.floor(SandboxVars.TLOU_infected.HideIndoorsUpdates * 1.2)
-	-- TLOU_infected.OnlyUnexplored 			=		SandboxVars.TLOU_infected.OnlyUnexplored
-	-- TLOU_infected.WanderAtNight 			=		SandboxVars.TLOU_infected.WanderAtNight
-	-- TLOU_infected.MaxDistanceToCheck 		=		SandboxVars.TLOU_infected.MaxDistanceToCheck
+	TLOU_infected.HideIndoorsUpdates 		=		math.floor(SandboxVars.TLOU_infected.HideIndoorsUpdates * 1.2)
+	TLOU_infected.OnlyUnexplored 			=		SandboxVars.TLOU_infected.OnlyUnexplored
+	TLOU_infected.WanderAtNight 			=		SandboxVars.TLOU_infected.WanderAtNight
+	TLOU_infected.MaxDistanceToCheck 		=		SandboxVars.TLOU_infected.MaxDistanceToCheck
 	TLOU_infected.NoStompClickers			=		SandboxVars.TLOU_infected.NoStompClickers
 	TLOU_infected.StandOnInfected_Stagger	=		SandboxVars.TLOU_infected.StandOnInfected_Stagger
 
@@ -55,9 +55,34 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 			-- 	male 				=		"Zombie/Voice/MaleA",
 			-- 	female 				=		"Zombie/Voice/FemaleA",
 			-- },
+			customVoice				= {
+				male = {
+					aggro = "Runner_male_aggro",
+					reanimate = "Runner_male_reanimate",
+					pushed = "Runner_male_pushed",
+					bite = "Runner_male_bite",
+					eating = "Runner_male_eating",
+					attack = "Runner_male_attack",
+					transition = "Runner_male_transition",
+					swing = "Runner_male_swing",
+					hurt = "Runner_male_hurt",
+					idle = "Runner_male_idle",
+				},
+				female = {
+					reanimate = "Runner_female_reanimate",
+					attack = "Runner_female_attack",
+					pushed = "Runner_female_pushed",
+					idle = "Runner_female_idle",
+					hurt = "Runner_female_hurt",
+					bite = "Runner_female_bite",
+					eating = "Runner_female_eating",
+					aggro = "Runner_female_aggro",
+					swing = "Runner_female_swing",
+				},
+			},
 
 			-- stats
-			walkType 				=		ZomboidForge.SpeedOptionToWalktype[SandboxVars.TLOU_infected.RunnerSpeed],
+			walkType 				=		ZomboidForge.SPEED_OPTION_TO_WALKTYPE[SandboxVars.TLOU_infected.RunnerSpeed],
 			strength 				=		SandboxVars.TLOU_infected.RunnerStrength,
 			toughness 				=		SandboxVars.TLOU_infected.RunnerToughness,
 			cognition 				=		2,
@@ -101,6 +126,29 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 			-- 	male 				= 		"Zombie/Voice/MaleB",
 			-- 	female 				= 		"Zombie/Voice/FemaleB",
 			-- },
+			customVoice = {
+				female = {
+					eating = "Stalker_female_eating",
+					hurt = "Stalker_female_hurt",
+					aggro = "Stalker_female_aggro",
+					gore = "Stalker_female_gore",
+					pushed = "Stalker_female_pushed",
+					bite = "Stalker_female_bite",
+					swing = "Stalker_female_swing",
+					attack = "Stalker_female_attack",
+					idle = "Stalker_female_idle",
+					reanimate = "Stalker_female_reanimate",
+				},
+				male = {
+					eating = "Stalker_male_eating",
+					hurt = "Stalker_male_hurt",
+					attack = "Stalker_male_attack",
+					bite = "Stalker_male_bite",
+					reanimate = "Stalker_male_reanimate",
+					idle = "Stalker_male_idle",
+					swing = "Stalker_male_swing",
+				},
+			},
 			clothingVisuals = {
 				dirty = 0.5,
 				bloody = 0.5,
@@ -109,7 +157,7 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 			removeBandages 			= 		true,
 
 			-- stats
-			walkType 				=		ZomboidForge.SpeedOptionToWalktype[SandboxVars.TLOU_infected.StalkerSpeed],
+			walkType 				=		ZomboidForge.SPEED_OPTION_TO_WALKTYPE[SandboxVars.TLOU_infected.StalkerSpeed],
 			strength 				=		1,
 			toughness 				=		2,
 			cognition 				=		2,
@@ -155,6 +203,17 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 				"isInfected",
 			}},
 			-- customEmitter 			= 		"Zombie/Voice/FemaleC",
+			customVoice = {
+				swing = "Clicker_swing",
+				pushed = "Clicker_pushed",
+				bite = "Clicker_bite",
+				eating = "Clicker_eating",
+				reanimate = "Clicker_reanimate",
+				attack = "Clicker_attack",
+				idle = "Clicker_idle",
+				aggro = "Clicker_aggro",
+				hurt = "Clicker_hurt",
+			},
 			clothingVisuals = {
 				set = {
 					["UnderwearBottom"] 	= 		{
@@ -184,7 +243,7 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 			removeBandages 			= 		true,
 
 			-- stats
-			walkType 				=		ZomboidForge.SpeedOptionToWalktype[2],
+			walkType 				=		ZomboidForge.SPEED_OPTION_TO_WALKTYPE[2],
 			strength 				= 		1,
 			toughness 				= 		1,
 			cognition 				= 		2,
@@ -237,10 +296,21 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 				"isInfected",
 			},
 			-- customEmitter 			=		"Zombie/Voice/MaleC",
+			customVoice = {
+				pushed = "Bloater_pushed",
+				eating = "Bloater_eating",
+				hurt = "Bloater_hurt",
+				swing = "Bloater_swing",
+				attack = "Bloater_attack",
+				bite = "Bloater_bite",
+				aggro = "Bloater_aggro",
+				idle = "Bloater_idle",
+				reanimate = "Bloater_reanimate",
+			},
 			removeBandages 			=		true,
 
 			-- stats
-			walkType 				=		ZomboidForge.SpeedOptionToWalktype[2],
+			walkType 				=		ZomboidForge.SPEED_OPTION_TO_WALKTYPE[2],
 			strength 				=		1,
 			toughness 				=		1,
 			cognition 				=		2,
@@ -301,23 +371,23 @@ TLOU_infected.Initialize_TLOUInfected = function(ZTypes)
 	-- if infected should hide indoors during daytime
 	if SandboxVars.TLOU_infected.HideIndoors then
 		if stalker then
-			stalker.customBehavior = stalker.customBehavior or {}
-			table.insert(stalker.customBehavior,
-				"HideIndoors"
+			stalker.onTick = stalker.onTick or {}
+			table.insert(stalker.onTick,
+				TLOU_infected.HideIndoors
 			)
 		end
 
 		if clicker then
-			clicker.customBehavior = clicker.customBehavior or {}
-			table.insert(clicker.customBehavior,
-				"HideIndoors"
+			clicker.onTick = clicker.onTick or {}
+			table.insert(clicker.onTick,
+				TLOU_infected.HideIndoors
 			)
 		end
 
 		if bloater then
-			bloater.customBehavior = bloater.customBehavior or {}
-			table.insert(bloater.customBehavior,
-				"HideIndoors"
+			bloater.onTick = bloater.onTick or {}
+			table.insert(bloater.onTick,
+				TLOU_infected.HideIndoors
 			)
 		end
 	end

@@ -542,7 +542,6 @@ option TLOU_infected.ExtraFireDamage_Bloater
 }
 
 /* Hide Indoors */
-/*
 option TLOU_infected.Separation_EmptyBox11
 {
 	type = boolean, default = false,
@@ -596,7 +595,7 @@ option TLOU_infected.HideIndoorsUpdates
 	default = 30,
 	page = TLOU_infected_customBehavior,
 	translation = TLOU_HideIndoorsUpdates,
-}*/
+}
 
 
 /*---------------------------------------------------------------------

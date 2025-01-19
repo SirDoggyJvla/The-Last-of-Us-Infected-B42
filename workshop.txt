@@ -19,27 +19,6 @@ description=
 description=[img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/workshop%20page/custom_infection_time.png[/img]
 description=[img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/workshop%20page/custom_infection_time_desc.png[/img]
 description=
-description=[table]
-description=[tr]
-description=[td] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3240134012] [img]https://steamuserimages-a.akamaihd.net/ugc/2483248871619845520/5CA6482C9FD71B9A19793E0BF8005D0278A08C52/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false[/img] [/url] [/td]
-description=[td]
-description=[h1]Requires manual installation of the sound files ! Download them from the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3240134012]Sounds of the Infected[/url] page ![/h1]
-description=
-description=Full installation guide on the mod page.
-description=[/td]
-description=[/tr]
-description=[tr]
-description=[td] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993] [img]https://steamuserimages-a.akamaihd.net/ugc/1917995851086737008/0B87330676C5526DEE21E8ACB4AB176DC8FF7972/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false[/img] [/url] [/td]
-description=[td]
-description=[h1]Nametags over zombies[/h1]
-description=
-description=Use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2169435993]Mod Options[/url] to improve your immersion by deactivating nametags or customize their placement !
-description=
-description=Nametags can also be deactivated from sandbox options.
-description=[/td]
-description=[/tr]
-description=[/table]
-description=
 description=[h1]Credits:[/h1]
 description=[list]
 description=[*] Alphoxis for his Bloater model

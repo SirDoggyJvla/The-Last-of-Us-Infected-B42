@@ -12,7 +12,6 @@ The general infected behavior are written in this file
 --[[ ================================================ ]]--
 
 --- Import functions localy for performances reasons
-local table = table -- Lua's table module
 local ipairs = ipairs -- ipairs function
 local pairs = pairs -- pairs function
 local ZombRand = ZombRand -- java function
@@ -21,30 +20,21 @@ local ZombRand = ZombRand -- java function
 local ZomboidForge = require "ZomboidForge_module"
 local TLOU_infected = require "TLOU_infected_module"
 require "ZomboidForge_tools"
-local CaliberData = require "TLOU_infected_caliberStats"
 local random = newrandom()
 
 --- import GameTime localy for performance reasons
 local gametime = GameTime:getInstance()
 
--- localy initialize mod data
-local TLOU_ModData = ModData.getOrCreate("TLOU_Infected")
-local function initTLOU_ModData()
-	TLOU_ModData = ModData.getOrCreate("TLOU_Infected")
-end
-Events.OnInitGlobalModData.Remove(initTLOU_ModData)
-Events.OnInitGlobalModData.Add(initTLOU_ModData)
-
 -- localy initialize player
 local client_player = getPlayer()
-local objectList = client_player and client_player:getCell():getObjectList()
 local function initTLOU_OnGameStart(playerIndex, player_init)
 	client_player = getPlayer()
-	objectList = client_player:getCell():getObjectList()
 end
 Events.OnCreatePlayer.Remove(initTLOU_OnGameStart)
 Events.OnCreatePlayer.Add(initTLOU_OnGameStart)
 
+--- CACHING
+local onServer = isClient()
 
 --#region Custom infection system
 
@@ -410,9 +400,8 @@ end
 ---@param ZType string
 ---@param ZombieTable table
 ---@param tick int
-ZomboidForge.HideIndoors = function(zombie,ZType,ZombieTable,tick)
+TLOU_infected.HideIndoors = function(zombie,ZType,ZombieTable,tick)
 	-- if on server, only the zombie owner should handle the client
-	local onServer = isClient()
 	if onServer then
 		-- if on server, verify owner of the zombie is the client to handle zombie
 		local zombieOwner = zombie.authOwnerPlayer
@@ -438,10 +427,11 @@ ZomboidForge.HideIndoors = function(zombie,ZType,ZombieTable,tick)
 	local maxDistance = TLOU_infected.MaxDistanceToCheck
 	local x
 	local y
-	local z = 0
+	local z = 0 -- zombie roams on ground level
 
 	-- verify if zombie should hide inside
     if gametime:getNight() < 0.5 or not TLOU_infected.WanderAtNight then
+		zombie:addLineChatElement("hide indoors")
 		-- retrieve nearest building
 		local squareMoveTo = TLOU_infected.GetClosestBuildingSquareAroundZombie(zombie,maxDistance)
 		if not squareMoveTo then return end
@@ -453,8 +443,9 @@ ZomboidForge.HideIndoors = function(zombie,ZType,ZombieTable,tick)
 
 	-- or roam around during night time
     else
-		x = zombie:getX() + ZombRand(10,maxDistance) * TLOU_infected.CoinFlip()
-		y = zombie:getY() + ZombRand(10,maxDistance) * TLOU_infected.CoinFlip()
+		zombie:addLineChatElement("roam")
+		x = zombie:getX() + random:random(10,maxDistance) * TLOU_infected.CoinFlip()
+		y = zombie:getY() + random:random(10,maxDistance) * TLOU_infected.CoinFlip()
     end
 
 	if x then
