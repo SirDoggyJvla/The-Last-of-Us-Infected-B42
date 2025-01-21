@@ -1,6 +1,10 @@
 version=1
 id=3409434765
 title=[B42] The Last of Us Infected
+description=[quote]
+description=[h1]SOUNDS OF THE INFECTED IS BY DEFAULT IN THE MOD NOW, NO NEED FOR MANUAL INSTALLATION OF ANYTHING[/h1]
+description=[/quote]
+description=
 description=[img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/workshop%20page/description.png[/img]
 description=[img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/workshop%20page/small_tips.png[/img]
 description=
@@ -33,6 +37,6 @@ description=
 description=[url=https://ko-fi.com/sirdoggyjvla][img]https://raw.githubusercontent.com/ChuckTheSheep/chuckImages/main/kofi.png[/img][/url][url=https://discord.gg/SReMnbV4V7][img]https://raw.githubusercontent.com/Chuckleberry-Finn/chuckImages/main/PZmodCommBanner1.png[/img][/url]
 description=
 description=[url=https://discord.gg/VteSYrd4mW][img]https://raw.githubusercontent.com/SirDoggyJvla/Project-Overgrown/main/images/banners/server_banner.png[/img][/url]
-description=[url=https://trello.com/b/OmzeKvdv/the-last-of-us-infected][img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/mod_advancement.png[/img][/url]
+description=[url=https://trello.com/b/OmzeKvdv/the-last-of-us-infected][img]https://raw.githubusercontent.com/SirDoggyJvla/The-Last-of-Us-Infected/main/images/mod_advancement.png[/img][/url]
 tags=Build 42;Balance;Framework;Hardmode;Items;Literature;Misc;Models;Multiplayer;Pop Culture;Realistic;Textures
 visibility=public

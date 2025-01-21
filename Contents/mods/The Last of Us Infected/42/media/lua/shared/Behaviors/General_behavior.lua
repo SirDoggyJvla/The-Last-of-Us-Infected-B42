@@ -431,7 +431,6 @@ TLOU_infected.HideIndoors = function(zombie,ZType,ZombieTable,tick)
 
 	-- verify if zombie should hide inside
     if gametime:getNight() < 0.5 or not TLOU_infected.WanderAtNight then
-		zombie:addLineChatElement("hide indoors")
 		-- retrieve nearest building
 		local squareMoveTo = TLOU_infected.GetClosestBuildingSquareAroundZombie(zombie,maxDistance)
 		if not squareMoveTo then return end
@@ -443,7 +442,6 @@ TLOU_infected.HideIndoors = function(zombie,ZType,ZombieTable,tick)
 
 	-- or roam around during night time
     else
-		zombie:addLineChatElement("roam")
 		x = zombie:getX() + random:random(10,maxDistance) * TLOU_infected.CoinFlip()
 		y = zombie:getY() + random:random(10,maxDistance) * TLOU_infected.CoinFlip()
     end
