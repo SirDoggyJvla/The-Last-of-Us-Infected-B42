@@ -303,7 +303,7 @@ option TLOU_infected.BloaterHealth
 	type = double,
 	min = 0,
 	max = 1000,
-	default = 100,
+	default = 60,
 	page = TLOU_infected_stats,
 	translation = TLOU_BloaterHP,
 }
