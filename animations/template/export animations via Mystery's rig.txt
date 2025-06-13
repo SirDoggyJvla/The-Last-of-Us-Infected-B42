@@ -1,0 +1,15 @@
+rename the 2 action BopRP to your animation name:
+-Bip01
+-BipIK
+
+Select:
+Dummy01
+Bip01
+Body_NoDress
+Translation_data (optional)
+
+Export to .fbx and change these options:
+-Selected Objects -> True
+-Leaf Bones -> False
+-NO change in primary secondary bones in armature
+-scale -> 0.01 (not needed if player animation, needed for zombie animations)
